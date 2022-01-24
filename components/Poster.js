@@ -3,7 +3,6 @@ import { useRecoilState } from "recoil";
 import { playingTrackState, playState } from "../atoms/playerAtom";
 
 function Poster({ track, chooseTrack }) {
-  
   const [play, setPlay] = useRecoilState(playState);
   const [playingTrack, setPlayingTrack] = useRecoilState(playingTrackState);
 
@@ -28,11 +27,11 @@ function Poster({ track, chooseTrack }) {
 
       <div className="absolute bottom-10 inset-x-0 ml-4 flex items-center space-x-3.5">
         <div className="h-10 w-10 bg-[#15883e] rounded-full flex items-center justify-center group-hover:bg-[#1db954] flex-shrink-0">
-        {track.uri === playingTrack.uri && play ? (
+          {track.uri === playingTrack.uri && play ? (
             <BsFillPauseFill className="text-xl" />
           ) : (
             <BsFillPlayFill className="text-xl ml-[1px]" />
-          )}        
+          )}
         </div>
 
         <div className="text-[15px]">
