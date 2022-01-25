@@ -1,4 +1,5 @@
 import Dropdown from "./Dropdown";
+import ActiveLink from "./ActiveLink";
 
 function Search({ search, setSearch }) {
   return (
@@ -8,18 +9,26 @@ function Search({ search, setSearch }) {
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className='bg-[#1a1a1a] text-white border-none lg:w-full focus:ring-0 outline-none placeholder-[#fafafa] text-xs'
-        placeholder='Search...'
+        className="bg-[#1a1a1a] text-white border-none lg:w-full focus:ring-0 outline-none placeholder-[#fafafa] text-xs"
+        placeholder="Search..."
       />
       <div className="flex items-center divide-dotted divide-x-4 divide-[#333] ml-auto">
         <div className="flex space-x-2 pr-5">
-          <button className="tag">Minimal</button>
-          <button className="tag">House</button>
-          <button className="tag">Minimal</button>
+          <button className="tag">
+            <ActiveLink href="/">Releases </ActiveLink>
+          </button>
+          <button className="tag">
+            <ActiveLink href="/playlist">Playlists </ActiveLink>
+          </button>
+          <ActiveLink href="/albums">
+            <button className="tag">
+              <ActiveLink href="/albums">Albums</ActiveLink>
+            </button>
+          </ActiveLink>
         </div>
 
         <div className="flex items-center space-x-1.5 text-[#cecece] pl-4">
-          <Dropdown/>
+          <Dropdown />
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ function BodyAlbums({ spotifyApi, chooseTrack }) {
     if (!search) return setSearchResults([]);
     if (!accessToken) return;
 
-    spotifyApi.searchPlaylists(search).then((res) => {
+    spotifyApi.searchTracks(search).then((res) => {
       setSearchResults(
         res.body.playlists.items.map((track) => {
           return {
@@ -74,22 +74,11 @@ function BodyAlbums({ spotifyApi, chooseTrack }) {
     });
   }, [accessToken]);
 
-  // spotifyApi.getMySavedAlbums({
-  //   limit : 3,
-  //   offset: 0
-  // })
-  // .then(function(data) {
-  //   // Output items
-  //   console.log(data.body.items);
-  // }, function(err) {
-  //   console.log('Something went wrong!', err);
-  // });
-
   return (
     <section className="bg-black ml-24 py-4 space-y-8 md:max-w-6xl flex-grow md:mr-2.5">
       <Search search={search} setSearch={setSearch} />
       <h2 className="text-white font-bold mb-3 ml-4">
-            {searchResults.length === 0 ? "Saved Playlists" : "Search Playlists"}
+            {searchResults.length === 0 ? "Saved Playlists" : "Search"}
           </h2>
       <div className="grid overflow-y-scroll scrollbar-hide h-full py-0 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 p-4">
         {searchResults.length === 0

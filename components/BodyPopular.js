@@ -47,7 +47,6 @@ function BodyPopular({ spotifyApi, chooseTrack }) {
         offset: 0,
       })
       .then((res) => {
-        console.log('borrame',res.body)
         setUserPlaylist(
           res.body.items
             .map(track => track)

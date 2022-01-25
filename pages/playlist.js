@@ -15,7 +15,6 @@ function Album() {
   const { data: session } = useSession();
   // const { accessToken } = session;
   const accessToken = session?.accessToken;
-  console.log("accessToken", accessToken);
   const [playingTrack, setPlayingTrack] = useRecoilState(playingTrackState);
   const [showPlayer, setShowPlayer] = useState(false);
 
