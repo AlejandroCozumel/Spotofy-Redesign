@@ -27,7 +27,7 @@ function Track({ track, chooseTrack }) {
           className="rounded-xl h-12 w-12 object-cover mr-3"
         />
         <div>
-          <h4 className="text-white text-sm font-semibold truncate w-[450px]">
+          <h4 className="text-white text-sm font-semibold truncate w-auto">
             {track.title}
           </h4>
           <p className="text-[rgb(179,179,179)] text-[13px] font-semibold group-hover:text-white">
