@@ -22,15 +22,16 @@ function BodyPopular({ spotifyApi, chooseTrack }) {
     if (!search) return setSearchResults([]);
     if (!accessToken) return;
 
-    spotifyApi.searchPlaylists(search).then((res) => {
+    spotifyApi.searchTracks(search).then((res) => {
+      console.log('holi',res.body)
       setSearchResults(
-        res.body.playlists.items.map((track) => {
+        res.body.tracks.items.map((track) => {
           return {
             id: track.id,
-            // artist: track.artists[0].name,
+            artist: track.artists[0].name,
             title: track.name,
             uri: track.uri,
-            albumUrl: track.images[0].url,
+            albumUrl: track.album.images[0].url,
             popularity: track.popularity,
           };
         })
